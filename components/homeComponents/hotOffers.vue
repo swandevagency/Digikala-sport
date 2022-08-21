@@ -1,12 +1,12 @@
 <template>
     <div class="hot-offers-section">
         <div class="hot-offers">
-        <div @click="leftHotScroll()">
+        <!-- <div @click="leftHotScroll()">
             <LeftControl /> 
         </div>    
         <div @click="rightHotScroll()">
             <RightControl />           
-        </div>
+        </div> -->
             <div class="hot-offers-right-shape">
                 <svg width="92" height="77" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M77.7524 14.9378C77.8003 15.3691 78.1744 15.7052 78.6289 15.7052H84.8224L84.9185 15.7001C85.3603 15.6533 85.7041 15.2876 85.7041 14.844V12.8462L85.699 12.7524C85.6511 12.3209 85.2769 11.9851 84.8224 11.9851L81.9819 11.9853L81.9811 10.8612L81.9759 10.7673C81.928 10.3358 81.5539 10 81.0991 10H78.6291L78.533 10.0051C78.0912 10.0518 77.7474 10.4172 77.7474 10.8612L77.7472 14.844L77.7524 14.9378Z" fill="white"/>
@@ -79,16 +79,15 @@ import axios from 'axios'
         },
         computed: {
             products() {
-                return this.$store.state.service.products;
+                const offers = this.$store.state.service.products;
+                const newOffers = offers.slice(0,6)
+                return newOffers
             }
         },
-        //  mounted () {
-        //     document.querySelector('.right-control-carousel').style.display = 'none';
+        // components:{
+        //     LeftControl: () => import('../buttons/leftControlCarousel.vue'),
+        //     RightControl: () => import('../buttons/rightControlCarousel.vue')
         // },
-        components:{
-            LeftControl: () => import('../buttons/leftControlCarousel.vue'),
-            RightControl: () => import('../buttons/rightControlCarousel.vue')
-        },
         methods:{
             leftHotScroll(){
                 let tl = gsap.timeline({});

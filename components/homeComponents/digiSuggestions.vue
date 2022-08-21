@@ -19,16 +19,14 @@
 
 <script>
 export default {
-    components:{
-        RightControl: () => import('../buttons/rightControlSuggestion.vue'),
-        LeftControl: () => import('../buttons/leftControlSuggestion.vue'),
-    },
     props: {
         suggestionTitle: String
     },
     computed: {
         products() {
-            return this.$store.state.service.products;
+            const discount = this.$store.state.service.products;
+            const newDiscount = discount.slice(0,6)
+            return newDiscount
         }
     },
     methods:{
