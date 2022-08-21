@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "digicategories",
+  "info": {
+    "singularName": "digicategorie",
+    "pluralName": "digicategories",
+    "displayName": "digicategorie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

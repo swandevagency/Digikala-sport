@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  direction: rtl;
+}
+
+@font-face {
+  font-family: "Iran Yekan";
+  src: url("../fonts/Yekan.eot") format("eot"), url("../fonts/Yekan.ttf") format("ttf"), url("../fonts/Yekan.woff") format("woff"), url("../fonts/Yekan.svg") format("svg");
+}
+
+p, h1, h2, h3, h4, h5, h6, a, span, button {
+  font-family: "Iran Yekan";
+  font-size: 0.8em;
+}
+
+::-webkit-input-placeholder {
+  font-family: "Iran Yekan";
+  font-size: 0.8em;
+}
+
+:-ms-input-placeholder {
+  font-family: "Iran Yekan";
+  font-size: 0.8em;
+}
+
+::-ms-input-placeholder {
+  font-family: "Iran Yekan";
+  font-size: 0.8em;
+}
+
+::placeholder {
+  font-family: "Iran Yekan";
+  font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f2;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  height: 15px;
+  background-color: #c1c2c6;
+}
+/*# sourceMappingURL=global.css.map */
