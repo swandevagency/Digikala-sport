@@ -10,19 +10,19 @@
             <div class="product-category-section-wrapper">
                 <h2>خرید براساس دسته بندی</h2>
                 <div class="product-category">
-                    <div class="product-category-item" id="2" @click="redirectToBarfix">
+                    <div class="product-category-item" ref="id2" id="id2" @click="redirectToBarfix">
                         <div>
                             <img src="../static/product-category/barfix.jpg" />
                         </div>
                         <h4>بارفیکس</h4>
                     </div>
-                    <div class="product-category-item" id="3" @click="redirectToTanab">
+                    <div class="product-category-item" ref="id3" id="id3" @click="redirectToTanab">
                         <div>
                             <img src="../static/product-category/rope.jpg" />
                         </div>
                         <h4>طناب</h4>
                     </div>
-                    <div class="product-category-item" id="4" @click="redirectToToop">
+                    <div class="product-category-item" ref="id4" id="id4" @click="redirectToToop">
                         <div>
                             <img src="../static/product-category/ball.jpg" />
                         </div>
@@ -68,6 +68,24 @@
             }
         },
         async asyncData({store, $axios}) {
+            // const id3 = document.querySelector('#id3')    
+            try {
+                await store.dispatch('service/getCategories', {
+                    axios: $axios,
+                    if(redirectToBarfix){
+                        id: 3
+                    }, 
+                    if (redirectToTanab){
+                        id: 4
+                    },
+                    if (redirectToToop){
+                        id: 5
+                    }
+                })
+            } catch (error) {
+                console.log(error);
+            }
+
             try {
                 await store.dispatch('service/getHotOffer', {
                     axios: $axios
@@ -75,6 +93,7 @@
             } catch (error) {
                 console.log(error);
             }
+
             try{
                 await store.dispatch('service/getIntro', {
                     axios: $axios

@@ -1,5 +1,9 @@
 @import "@/assets/scss/color.scss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     font-size: 16px;
 }

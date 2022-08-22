@@ -19,12 +19,12 @@ export const mutations = {
 }
 
 export const actions = {
-    async getCategories({commit}, {axios}) {
+    async getCategories({commit}, {axios, id}) {
         try {
-            const url = 'http://localhost:1337/api/categories/4?populate=*';
+            const url = `http://localhost:1337/api/categories/3?populate=*`;
             const res = await axios.get(url)
             console.log(res.data.data);
-            commit('setCategories', res.data.data)
+            commit('setCategories', res.data.data.id)
         } catch (error) {
             throw error
         }
