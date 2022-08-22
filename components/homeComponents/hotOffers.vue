@@ -28,12 +28,12 @@
                     <path d="M108.649 83.8194C108.649 83.3793 109.013 83.0225 109.462 83.0225H111.901C112.35 83.0225 112.714 83.3793 112.714 83.8194V102.945C112.714 103.385 112.35 103.741 111.901 103.741H109.462C109.013 103.741 108.649 103.385 108.649 102.945V83.8194Z" fill="white"/>
                 </svg>
                 <img width="145" height="115" src="../../static/General.png" />
-                <a class="hot-offers-right-shape-more">
+                <NuxtLink to="./products/k" class="hot-offers-right-shape-more">
                     <p>مشاهده همه</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
                         <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
                     </svg>
-                </a>
+                </NuxtLink>
             </div>
             <div class="hot-offer-goods-wrapper">
                 <div class="hot-offer-goods">
@@ -191,7 +191,7 @@ import axios from 'axios'
         flex-direction: column;
         align-items: center;
         padding: 12px 16px;
-        width: 185px;
+        width: 196px;
         img{
             width: 150px;
             height: 150px;

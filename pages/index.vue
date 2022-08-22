@@ -1,6 +1,6 @@
 <template>
         <div>
-        <div class="electronic-devices-wrapper">
+        <div class="sport-container-wrapper">
             <div class="landing-image">
                 <img src="../static/Sport/landing.jpg"/>
             </div>
@@ -10,19 +10,19 @@
             <div class="product-category-section-wrapper">
                 <h2>خرید براساس دسته بندی</h2>
                 <div class="product-category">
-                    <div class="product-category-item" @click="redirectToBarfix">
+                    <div class="product-category-item" id="2" @click="redirectToBarfix">
                         <div>
                             <img src="../static/product-category/barfix.jpg" />
                         </div>
                         <h4>بارفیکس</h4>
                     </div>
-                    <div class="product-category-item" @click="redirectToTanab">
+                    <div class="product-category-item" id="3" @click="redirectToTanab">
                         <div>
                             <img src="../static/product-category/rope.jpg" />
                         </div>
                         <h4>طناب</h4>
                     </div>
-                    <div class="product-category-item" @click="redirectToToop">
+                    <div class="product-category-item" id="4" @click="redirectToToop">
                         <div>
                             <img src="../static/product-category/ball.jpg" />
                         </div>
@@ -31,17 +31,17 @@
                 </div>
             </div>
 
-            <div class="electronic-devices-banners-section">
-                <a class="electronic-devices-banner">
+            <div class="sport-banners-section">
+                <a class="sport-banner">
                     <img src="../static/sport-banners/1.jpg" />
                 </a>
-                <a class="electronic-devices-banner">
+                <a class="sport-banner">
                     <img src="../static/sport-banners/2.jpg" />
                 </a>
-                <a class="electronic-devices-banner">
+                <a class="sport-banner">
                     <img src="../static/sport-banners/3.jpg" />
                 </a>
-                <a class="electronic-devices-banner">
+                <a class="sport-banner">
                     <img src="../static/sport-banners/4.jpg" />
                 </a>
             </div>
@@ -90,6 +90,11 @@
         blog: () => import ("@/components/homeComponents/blog.vue"),
         SpecialOffer: () => import ("@/components/homeComponents/specialServices.vue"),
     },  
+    computed: {
+        categoryProducts(){
+            return this.$store.state.service.categoryProducts.id;
+        }
+    },
     methods: {
         redirectToBarfix() {
             this.$router.push('/products/barfix')
@@ -138,9 +143,9 @@
         background-color: #5c9b40 !important;
     }
 
-    .electronic-devices-wrapper{
+    .sport-container-wrapper{
         margin-top: 50px;
-        padding: 0px 120px;
+        padding: 0px 80px;
     }
 
     .hero-section{
@@ -190,14 +195,14 @@
         }
     }
 
-    .electronic-devices-banners-section{
+    .sport-banners-section{
         display: grid;
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 16px;
         margin: 60px 0px 20px;
     }
 
-    .electronic-devices-banner{
+    .sport-banner{
         flex-basis: 49%;
 
         img{
@@ -210,77 +215,6 @@
     .best-in-month{
         margin-bottom: 150px;
     }
-
-    .digital-description-section{
-        width: 100%;
-        margin-top: 30px;
-
-        h1{
-            color: #62666d;
-            font-size: 1.5em;
-            font-weight: 300;
-            cursor: default;
-        }
-        
-        h2{
-            color: #62666d;
-            font-size: 1.8em;
-            font-weight: 300;
-            cursor: default;
-        }
-
-        p{
-            color:#a1a3a8;
-            font-size: 0.9em;
-            cursor: default;
-        }
-    }
-
-    .digital-description-button{
-        outline: none;
-        border: none;
-        background: none;
-        cursor: pointer;
-
-        margin-top: 30px;
-        div{
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-        a{
-            color: $more-content-color;
-            font-size: 1.2em;
-        }
-        svg{
-            fill: $more-content-color;
-            margin-top: 5px;
-            margin-right: 5px;
-        }
-
-    }
-
-    .digital-description-moreContent{
-        div{
-            margin-top: 15px;
-        }
-
-        h3{
-            color: #62666d;
-            font-size: 1.4em;
-            font-weight: 300;
-        }
-
-        p{
-            color:#a1a3a8;
-            font-size: 0.8em; 
-        }
-    }
-
-    // .main-container{
-    //     margin: 0px 0px;
-    //     padding: 0px 0px;
-    // }
 
     @media only screen and (max-width: 992px){
         .electronic-devices-wrapper {

@@ -11,7 +11,7 @@ export const mutations = {
 
     setIntro: (state, categories) => (state.categories = categories),
 
-    setBarfix: (state, Barfixes) => (state.barfixes = Barfixes),
+    // setBarfix: (state, Barfixes) => (state.barfixes = Barfixes),
 
     setCategoryProducts: (state, categoryProducts) => (state.categoryProducts = categoryProducts),
 
@@ -21,12 +21,22 @@ export const mutations = {
 export const actions = {
     async getCategories({commit}, {axios}) {
         try {
-            const url = 'http://localhost:1337/api/categories?populate=*'
+            const url = 'http://localhost:1337/api/categories/4?populate=*';
             const res = await axios.get(url)
-            // console.log(res.data.data);
+            console.log(res.data.data);
             commit('setCategories', res.data.data)
         } catch (error) {
             throw error
+        }
+    },
+    async getCategoryProducts({commit}, {axios, id}) {
+        try {
+            const url = 'http://localhost:1337/api/products?populate=*';
+            const res = await axios.get(url);
+            console.log(res.data.data);
+            commit('setCategoryProducts', res.data.data);
+        } catch (errors) {
+            throw errors
         }
     },
     async getHotOffer({commit}, {axios}) {
@@ -39,16 +49,6 @@ export const actions = {
             throw error;
         }
     },
-    async getCategoryProducts({commit}, {axios, id}) {
-        try {
-            const url = `http://localhost:1337/api/categories/${id}?populate=*`;
-            const res = await axios.get(url);
-            // console.log(res.data.data);
-            commit('setCategoryProducts', res.data.data.attributes.products.data);
-        } catch (errors) {
-            throw errors
-        }
-    },
     async getIntro({commit}, {axios}) {
         try{
             const url = 'http://localhost:1337/api/digicategories?populate=*';
@@ -59,14 +59,14 @@ export const actions = {
         }
     },
 
-    async getBarfix({commit}, {axios}) {
-        try {
-            const url = 'http://localhost:1337/api/products/?populate=*';
-            const res = await axios.get(url);
-            console.log(res.data.data);
-            commit('setBarfix', res.data.data)
-        } catch (error) {
-            throw error;
-        }
-    },
+    // async getBarfix({commit}, {axios}) {
+    //     try {
+    //         const url = 'http://localhost:1337/api/products/?populate=*';
+    //         const res = await axios.get(url);
+    //         console.log(res.data.data);
+    //         commit('setBarfix', res.data.data)
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // },
 }
